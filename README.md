@@ -90,19 +90,9 @@ kallyai --transcript <ID>      # Get conversation transcript
 
 ## Claude Code Skill Installation
 
-This CLI can be used as a [Claude Code](https://claude.ai/claude-code) skill, allowing Claude to make phone calls on your behalf.
+This CLI can be used as a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill, allowing Claude to make phone calls on your behalf.
 
-### Method 1: Claude Code Command (Recommended)
-
-In Claude Code, run:
-
-```
-/install-skill https://github.com/sltelitsyn/kallyai-cli
-```
-
-This automatically installs the CLI and configures the skill.
-
-### Method 2: Quick Install (Manual)
+### Method 1: One-Line Install (Recommended)
 
 ```bash
 # Install CLI globally
@@ -114,7 +104,7 @@ curl -o ~/.claude/skills/kallyai-api/SKILL.md \
   https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/skill/SKILL.md
 ```
 
-### Method 3: Install from Source
+### Method 2: Install from Source
 
 ```bash
 # Clone repository
@@ -129,7 +119,7 @@ mkdir -p ~/.claude/skills/kallyai-api
 cp skill/SKILL.md ~/.claude/skills/kallyai-api/
 ```
 
-### Method 4: User Settings (Alternative)
+### Method 3: User Settings (Alternative)
 
 Add to your Claude Code settings file (`~/.claude/settings.json`):
 
