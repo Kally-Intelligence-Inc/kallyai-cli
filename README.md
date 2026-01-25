@@ -19,8 +19,8 @@ pip install kallyai-cli
 Or install from source:
 
 ```bash
-git clone https://github.com/anthropics/claude-code-skills.git
-cd claude-code-skills/kallyai-api
+git clone https://github.com/sltelitsyn/kallyai-cli.git
+cd kallyai-cli
 pip install -e .
 ```
 
@@ -88,16 +88,64 @@ kallyai --call-info <ID>       # Get call details
 kallyai --transcript <ID>      # Get conversation transcript
 ```
 
-## Claude Code Skill
+## Claude Code Skill Installation
 
-This CLI can also be used as a Claude Code skill. Add to your skills:
+This CLI can be used as a [Claude Code](https://claude.ai/claude-code) skill, allowing Claude to make phone calls on your behalf.
+
+### Method 1: Quick Install (Recommended)
 
 ```bash
-# Copy to Claude Code skills directory
-cp -r kallyai-api ~/.claude/skills/
+# Install CLI globally
+pip install kallyai-cli
+
+# Create skills directory and download skill file
+mkdir -p ~/.claude/skills/kallyai-api
+curl -o ~/.claude/skills/kallyai-api/SKILL.md \
+  https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/skill/SKILL.md
 ```
 
-Then invoke with the skill trigger words: "call", "phone", "reservation", "appointment", "KallyAI".
+### Method 2: Install from Source
+
+```bash
+# Clone repository
+git clone https://github.com/sltelitsyn/kallyai-cli.git
+cd kallyai-cli
+
+# Install CLI
+pip install -e .
+
+# Copy skill to Claude Code
+mkdir -p ~/.claude/skills/kallyai-api
+cp skill/SKILL.md ~/.claude/skills/kallyai-api/
+```
+
+### Method 3: User Settings (Alternative)
+
+Add to your Claude Code settings file (`~/.claude/settings.json`):
+
+```json
+{
+  "skills": {
+    "kallyai-api": {
+      "path": "/path/to/kallyai-cli/skill"
+    }
+  }
+}
+```
+
+### Usage in Claude Code
+
+Once installed, Claude will automatically use the skill when you mention:
+- "call", "phone call", "make a call"
+- "reservation", "book a table"
+- "appointment", "schedule"
+- "KallyAI"
+
+**Example prompts:**
+- "Call +15551234567 and ask about their store hours"
+- "Make a reservation at Italian Bistro for 4 people at 8pm"
+- "Check my KallyAI usage"
+- "Show my recent calls"
 
 ## Security
 
