@@ -33,7 +33,7 @@ except ImportError:
     print("Error: httpx is required. Install with: pip install httpx")
     sys.exit(1)
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 # Configuration
 API_BASE = "https://api.kallyai.com"

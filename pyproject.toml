@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "kallyai-cli"
-version = "1.0.0"
+version = "1.0.1"
 description = "CLI for KallyAI - AI phone assistant that makes calls to businesses"
 readme = "README.md"
-license = "MIT"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [
     { name = "KallyAI", email = "support@kallyai.com" }
@@ -27,7 +27,7 @@ classifiers = [
     "Environment :: Console",
     "Intended Audience :: Developers",
     "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",

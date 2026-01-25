@@ -165,7 +165,12 @@ For direct API usage, see the [API Reference](docs/api-reference.md).
 
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+Proprietary License - see [LICENSE](LICENSE)
+
+This software is provided under a proprietary license. You may use it solely
+for personal or internal business purposes in connection with KallyAI services.
+Reverse engineering, decompilation, and security testing are prohibited without
+prior written consent.
 
 ## Links
 
