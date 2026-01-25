@@ -33,7 +33,7 @@ except ImportError:
     print("Error: httpx is required. Install with: pip install httpx")
     sys.exit(1)
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 # Configuration
 API_BASE = "https://api.kallyai.com"
@@ -73,17 +73,31 @@ def save_token(access_token: str, refresh_token: str = None, expires_in: int = 3
 
 
 def _refresh_token(refresh_tok: str) -> str | None:
-    """Refresh an expired access token."""
-    with httpx.Client() as client:
-        resp = client.post(
-            f"{API_BASE}/v1/auth/refresh",
-            json={"refresh_token": refresh_tok},
-            headers={"User-Agent": f"KallyAI-CLI/{__version__}"},
-        )
-        if resp.status_code == 200:
-            data = resp.json()
-            save_token(data["access_token"], data.get("refresh_token"), data.get("expires_in", 3600))
-            return data["access_token"]
+    """Refresh an expired access token.
+
+    Uses a 30-second timeout to handle Cloud Run cold starts gracefully.
+    Logs errors to stderr for debugging without disrupting normal output.
+    """
+    try:
+        with httpx.Client(timeout=30.0) as client:
+            resp = client.post(
+                f"{API_BASE}/v1/auth/refresh",
+                json={"refresh_token": refresh_tok},
+                headers={
+                    "User-Agent": f"KallyAI-CLI/{__version__}",
+                    "Content-Type": "application/json",
+                },
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                save_token(data["access_token"], data.get("refresh_token"), data.get("expires_in", 3600))
+                return data["access_token"]
+            # Log non-200 responses for debugging
+            print(f"[!] Token refresh failed: HTTP {resp.status_code}", file=sys.stderr)
+    except httpx.TimeoutException:
+        print("[!] Token refresh timed out (server may be starting up)", file=sys.stderr)
+    except Exception as e:
+        print(f"[!] Token refresh error: {e}", file=sys.stderr)
     return None
 
 
