@@ -88,11 +88,37 @@ kallyai --call-info <ID>       # Get call details
 kallyai --transcript <ID>      # Get conversation transcript
 ```
 
-## Claude Code Skill Installation
+## AI Assistant Integration
 
-This CLI can be used as a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill, allowing Claude to make phone calls on your behalf.
+This CLI integrates with AI assistants, allowing Claude to make phone calls on your behalf.
 
-### Method 1: One-Line Install (Recommended)
+### Clawdbot (Recommended for Desktop)
+
+[Clawdbot](https://clawdbot.com) is a native macOS app for Claude. Install the KallyAI skill:
+
+```bash
+# Install CLI
+pip install kallyai-cli
+
+# Create skill directory and download skill
+mkdir -p ~/.clawdbot/skills/kallyai
+curl -o ~/.clawdbot/skills/kallyai/SKILL.md \
+  https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/clawdbot-skill/SKILL.md
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/sltelitsyn/kallyai-cli.git
+mkdir -p ~/.clawdbot/skills/kallyai
+cp kallyai-cli/clawdbot-skill/SKILL.md ~/.clawdbot/skills/kallyai/
+```
+
+### Claude Code (Terminal)
+
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's official CLI for Claude.
+
+#### Method 1: One-Line Install (Recommended)
 
 ```bash
 # Install CLI globally
@@ -104,7 +130,7 @@ curl -o ~/.claude/skills/kallyai-api/SKILL.md \
   https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/skill/SKILL.md
 ```
 
-### Method 2: Install from Source
+#### Method 2: Install from Source
 
 ```bash
 # Clone repository
@@ -119,7 +145,7 @@ mkdir -p ~/.claude/skills/kallyai-api
 cp skill/SKILL.md ~/.claude/skills/kallyai-api/
 ```
 
-### Method 3: User Settings (Alternative)
+#### Method 3: User Settings (Alternative)
 
 Add to your Claude Code settings file (`~/.claude/settings.json`):
 
@@ -133,7 +159,7 @@ Add to your Claude Code settings file (`~/.claude/settings.json`):
 }
 ```
 
-### Usage in Claude Code
+### Usage with AI Assistants
 
 Once installed, Claude will automatically use the skill when you mention:
 - "call", "phone call", "make a call"
