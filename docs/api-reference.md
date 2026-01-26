@@ -55,9 +55,11 @@ http://localhost:PORT?access_token=TOKEN&refresh_token=TOKEN&expires_in=3600&sta
 
 ### OAuth2 Authorization Code Flow (GPT Actions)
 
+> **Note:** For ChatGPT GPT Actions, the `client_id`, `client_secret`, and `redirect_uri` are configured in the GPT Actions builder. For custom integrations, contact KallyAI to obtain OAuth credentials.
+
 **Step 1: Redirect user to authorization**
 ```
-GET /v1/auth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&state=RANDOM_STATE&scope=calls:read%20calls:write
+GET /v1/auth/authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&state=RANDOM_STATE&scope=calls:read%20calls:write
 ```
 
 | Parameter | Required | Description |
@@ -75,7 +77,7 @@ User sees Google sign-in page. After authentication, redirects to `redirect_uri?
 POST /v1/auth/gpt/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=YOUR_ID&client_secret=YOUR_SECRET&code=AUTH_CODE&redirect_uri=YOUR_URI
+grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code=AUTH_CODE&redirect_uri={redirect_uri}
 ```
 
 **Response:**
@@ -93,7 +95,7 @@ grant_type=authorization_code&client_id=YOUR_ID&client_secret=YOUR_SECRET&code=A
 POST /v1/auth/gpt/token
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=YOUR_ID&client_secret=YOUR_SECRET&refresh_token=REFRESH_TOKEN
+grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token=REFRESH_TOKEN
 ```
 
 ---
