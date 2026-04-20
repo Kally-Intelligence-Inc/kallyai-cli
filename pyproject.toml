@@ -43,9 +43,9 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://kallyai.com"
-Documentation = "https://github.com/KallyAI/kallyai-cli"
-Repository = "https://github.com/KallyAI/kallyai-cli"
-Issues = "https://github.com/KallyAI/kallyai-cli/issues"
+Documentation = "https://github.com/Kally-Intelligence-Inc/kallyai-cli"
+Repository = "https://github.com/Kally-Intelligence-Inc/kallyai-cli"
+Issues = "https://github.com/Kally-Intelligence-Inc/kallyai-cli/issues"
 
 [project.scripts]
 kallyai = "kallyai_cli:main"
