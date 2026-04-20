@@ -19,7 +19,7 @@ pip install kallyai-cli
 Or install from source:
 
 ```bash
-git clone https://github.com/sltelitsyn/kallyai-cli.git
+git clone https://github.com/Kally-Intelligence-Inc/kallyai-cli.git
 cd kallyai-cli
 pip install -e .
 ```
@@ -103,13 +103,13 @@ pip install kallyai-cli
 # Create skill directory and download skill
 mkdir -p ~/.clawdbot/skills/kallyai
 curl -o ~/.clawdbot/skills/kallyai/SKILL.md \
-  https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/clawdbot-skill/SKILL.md
+  https://raw.githubusercontent.com/Kally-Intelligence-Inc/kallyai-cli/main/clawdbot-skill/SKILL.md
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/sltelitsyn/kallyai-cli.git
+git clone https://github.com/Kally-Intelligence-Inc/kallyai-cli.git
 mkdir -p ~/.clawdbot/skills/kallyai
 cp kallyai-cli/clawdbot-skill/SKILL.md ~/.clawdbot/skills/kallyai/
 ```
@@ -127,14 +127,14 @@ pip install kallyai-cli
 # Create skills directory and download skill file
 mkdir -p ~/.claude/skills/kallyai-api
 curl -o ~/.claude/skills/kallyai-api/SKILL.md \
-  https://raw.githubusercontent.com/sltelitsyn/kallyai-cli/main/skill/SKILL.md
+  https://raw.githubusercontent.com/Kally-Intelligence-Inc/kallyai-cli/main/skill/SKILL.md
 ```
 
 #### Method 2: Install from Source
 
 ```bash
 # Clone repository
-git clone https://github.com/sltelitsyn/kallyai-cli.git
+git clone https://github.com/Kally-Intelligence-Inc/kallyai-cli.git
 cd kallyai-cli
 
 # Install CLI
