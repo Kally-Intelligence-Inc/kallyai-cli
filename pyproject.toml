@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "kallyai-cli"
-version = "1.0.4"
+version = "1.0.5"
 description = "CLI for KallyAI - AI phone assistant that makes calls to businesses"
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [
-    { name = "KallyAI", email = "support@kallyai.com" }
+    { name = "Kally Intelligence, Inc.", email = "support@kallyintelligence.com" }
 ]
 keywords = [
     "kallyai",
